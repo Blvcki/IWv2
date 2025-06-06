@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Instant Weather</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="favicon/favicon.jpg" type="image/x-icon">
+</head>
+<body>
+    <div class="hero">
+        <div class="overlay">
+            <header>
+                <div class="logo">INSTANT<span>WEATHER</span></div>
+                <div class="header-controls">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Basculer le thème">
+                        🌙
+                    </button>
+                    <div class="home-button" onclick="location.reload()">
+                        <svg viewBox="0 0 64 64">
+                            <path d="M32 12l22 18h-6v18h-12V36h-8v12H16V30h-6z"/>
+                        </svg>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <section id="locationForm">
+                    <div class="form-group">
+                        <label for="postal-input">Code postal</label>
+                        <input type="text" id="postal-input" placeholder="Ex: 75001" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cityDropdown" class="sr-only">Choisissez votre ville</label>
+                        <select id="cityDropdown" style="display: none;"></select>
+                    </div>
+
+                    <div class="days-selector">
+                        <h3>Nombre de jours</h3>
+                        <div class="days-buttons">
+                            <button class="day-btn active" data-days="1">1</button>
+                            <button class="day-btn" data-days="2">2</button>
+                            <button class="day-btn" data-days="3">3</button>
+                            <button class="day-btn" data-days="4">4</button>
+                            <button class="day-btn" data-days="5">5</button>
+                            <button class="day-btn" data-days="6">6</button>
+                            <button class="day-btn" data-days="7">7</button>
+                        </div>
+                    </div>
+
+                    <div class="options-selector">
+                        <h3>Informations supplémentaires</h3>
+                        <div class="options-grid">
+                            <div class="option-item">
+                                <input type="checkbox" id="coords" />
+                                <label for="coords">Coordonnées géographiques</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="checkbox" id="rain" />
+                                <label for="rain">Cumul de pluie (mm)</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="checkbox" id="wind" />
+                                <label for="wind">Vitesse du vent (km/h)</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="checkbox" id="windDir" />
+                                <label for="windDir">Direction du vent (°)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="submitBtn" style="display: none;">Obtenir la météo</button>
+                </section>
+                
+                <section id="weatherResult" style="display: none;"></section>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/weather.js"></script>
+</body>
+</html>
